@@ -1,0 +1,23 @@
+$media-desktop-min: 1025px;
+$media-tablet-landscape-min: 1023px;
+$media-tablet-max: $media-desktop-min - 1;
+$media-tablet-min: 768px;
+$media-mobile-max: $media-tablet-min - 1;
+$media-sm-mobile-max: 373px;
+$media-mobile-min: $media-sm-mobile-max + 1;
+$container-max-width: 1200px;
+$container-max-width-widened: 1600px;
+$media-xsm-mobile-max: 320px;
+
+$color-border-grey: #CCC;
+$color-border-dark-grey: #666;
+$color-black: #000;
+$color-white: #ffffff;
+
+$font-stack-futura: 'futura-pt', Futura, 'Century Gothic', Roboto, sans-serif;
+
+// Gutter sizes (for grid).
+$gutter: 20px;
+$gutter-quarter: $gutter / 4;
+$gutter-half: $gutter / 2;
+$gutter-double: $gutter * 2;

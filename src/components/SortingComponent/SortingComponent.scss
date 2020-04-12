@@ -1,0 +1,16 @@
+.sorting {
+  &__container {
+    margin: 0px 20px;
+    width: 70%;
+
+    h1, h2 {
+      text-decoration: underline;
+    }
+    pre{
+     background: grey;
+    }
+    .data{
+      color: blue;
+    }
+  }
+}

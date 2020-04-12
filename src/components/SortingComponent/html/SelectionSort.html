@@ -1,0 +1,84 @@
+<p>
+  The selection sort algorithm sorts an array by repeatedly finding the minimum element (Consider ascending order) from
+  unsorted part
+</p>
+<h2>
+  Drawbacks:
+</h2>
+<p>
+  The primary disadvantage of the selection sort is its poor efficiency when dealing with a huge list of items. Similar
+  to the bubble sort, the selection sort requires n-squared number of steps for sorting n elements.
+</p>
+<h2>
+  Algorithm how it works with example:
+</h2>
+<p class="data">
+  arr = [40, 50, 20, 30, 10]
+</p>
+<p>
+  Pick the first element from the list 40
+  Compare this value against the rest of the item [1..4] in the list to get the minimum value from the list
+</p>
+
+<p>
+  minimum item from the list [2..4] is 10, now swap 40 and 10 poistion. Result Array will be as below
+</p>
+
+<p class="data">
+  arr = [10, 50, 20, 30, 40]
+</p>
+
+<p>
+  Now the pointer is moved to second item which is 50.
+  Compare this value against the rest of the item [2..4] in the list to get the minimum value from the list
+</p>
+
+<p>
+  minimum item from the list [2..4] is 20, now swap 50 and 20 poistion. Result Array will be as below
+</p>
+
+<p class="data">
+  arr = [10, 20, 50, 30, 40]
+</p>
+
+<p>
+  Now the pointer is moved to next item which is again 50.
+  Compare this value against the rest of the item [3..4] in the list to get the minimum value from the list
+</p>
+
+<p>
+  minimum item from the list [3..4] is 30, now swap 50 and 30 poistion. Result Array will be as below
+</p>
+
+<p class="data">
+  arr = [10, 20, 30, 50, 40]
+</p>
+
+<p>
+  Now the pointer is moved to next item which is again 50.
+  Compare this value against the rest of the item which is the last item in the list to get the minimum value from the
+  list
+</p>
+
+<p>
+  minimum item is 40, now swap 50 and 40 poistion. Result Array will be as below
+</p>
+
+<p class="data">
+  arr = [10, 20, 30, 40, 50]
+</p>
+
+</pre>
+<h2>
+  Javascript Logic
+</h2>
+<pre>
+  function selectionSort(arr) {
+   var n = arr.length;
+   for (let i = 0; i &lt; n - 1; i++) {
+    var min_idx=i;
+    for (var j=i+1; j &lt; n; j++) if (arr[j] &lt; arr[min_idx]) min_idx=j; 
+    var temp=arr[min_idx]; 
+    arr[min_idx]=arr[i]; 
+    arr[i]=temp; 
+  } </pre>

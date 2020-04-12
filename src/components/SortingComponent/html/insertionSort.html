@@ -1,0 +1,73 @@
+<p>
+ Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
+</p>
+<h2>
+ Drawback:
+</h2>
+<p>
+ It is much less efficient on large lists than more advanced algorithms
+</p>
+<h2>
+ Algorithm how it works with example:
+</h2>
+<p class="data">
+ arr = [40, 50, 20, 30, 10]
+</p>
+<p>
+ First pick the first element and compare against the next of the item.
+</p>
+<p>
+ In our case compare 40 with 50, to see if first element is greater than next element. If yes pick the smallest element
+ and insert in the first spot.
+</p>
+
+<p>If the first element is less than the second element, we can move to next element. Now the pointer moves to second
+ element. Which is 50.</p>
+
+<p>
+ Now compare this with the next element which is 20. Since 50 > 20, we have to pick 20 and start checking backwards in
+ the list to see where to insert this number. Once we indentify the spot, insert 20 in that spot.
+</p>
+
+<p>
+ In our case, the spot is 0. The update list after the above process is ,
+</p>
+
+<p class="data">
+ arr = [20, 40, 50, 30, 10]
+</p>
+
+<p>
+ Next pointer moves to poistion 3, value is 50 compare against 30. Since 50 > 30, insertion process is performed again.
+ Now the resul will be,
+</p>
+
+
+<p class="data">
+ arr = [20, 30 40, 50, 10]
+</p>
+<p>
+ Same needs to be performed for the next two items [50 & 10]
+</p>
+
+<p class="data">
+ arr = [10, 20, 30 40, 50]
+</p>
+
+<pre>
+ function insertionSort(arr) {
+  var n = arr.length;
+  var key, j;
+  for (var i = 1; i &lt; n; ++i) {
+   key = arr[i];
+   j = i - 1;
+
+   while (j &gt;= 0 && arr[j] &gt; key) {
+    arr[j + 1] = arr[j];
+    j = j - 1;
+   }
+   arr[j + 1] = key;
+
+  }
+ }
+</pre>

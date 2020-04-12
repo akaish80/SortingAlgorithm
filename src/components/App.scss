@@ -1,0 +1,246 @@
+@import "../styles/variables";
+@import "../styles/mixin.scss";
+
+ul.tabs {
+  font-family: $font-stack-futura;
+  padding: 0;
+  float: left;
+  list-style: none;
+  height: 59px;
+  width: 100%;
+  margin-bottom: -2px;
+  border: none;
+  color: #fff;
+  background: #272e38;
+  border-radius: 0;
+
+  @include mq-max($media-mobile-max) {
+    display: none;
+  }
+
+  li {
+    font-family: $font-stack-futura;
+    font-size: 20px;
+    font-weight: 400;
+    color: $color-border-dark-grey;
+    float: left;
+    margin: 0 5% 0 0;
+    height: 59px;
+    padding: 18px 25px;
+    overflow: hidden;
+    position: relative;
+    line-height: 24px;
+    box-sizing: border-box;
+    text-align: left;
+
+    @media only screen and (max-width: $media-tablet-max) and (min-width: $media-tablet-min) {
+      font-size: 16px;
+    }
+
+    &::after {
+      content: "";
+      position: relative;
+      bottom: -54px;
+      left: -50%;
+      border: 15px solid transparent;
+    }
+  }
+
+  li.active {
+    border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background: #272e38;
+    border-radius: 0;
+
+    &::after {
+      content: "";
+      position: relative;
+      bottom: -54px;
+      left: -50%;
+      border: 15px solid transparent;
+      border-top-color: #e74c3c;
+    }
+  }
+}
+
+.tab_container {
+  margin-top: 0px;
+  clear: both;
+  float: left;
+  width: 100%;
+  overflow: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @include mq-max($media-mobile-max) {
+    font-family: $font-stack-futura;
+    padding-bottom: 0;
+    min-height: inherit;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  .tab_content {
+    background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top: 5px solid #e74c3c;
+    border-bottom: 5px solid #e74c3c;
+    padding: 30px 25px;
+
+    &.active {
+      display: block;
+    }
+
+    &.hide {
+      display: none !important;
+    }
+  }
+
+  .tab_drawer_heading {
+    display: none;
+
+    @include mq-max($media-mobile-max) {
+      border-right: 0;
+      border-left: 0;
+      border-bottom: 0;
+      border-top: 1px solid #d3d3d3;
+      width: 100%;
+      margin-left: 0;
+      margin: 0;
+      color: $color-black;
+      background-color: $color-white;
+      display: block;
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      clear: both;
+      text-align: left;
+      padding: 16px 0;
+      font-size: 13px;
+      font-family: $font-stack-futura;
+      font-weight: 400;
+      float: left;
+      text-transform: uppercase;
+      position: relative;
+
+      &.active {
+        background-color: #ededed;
+        font-weight: 600;
+        padding-left: 10px;
+        padding-bottom: 12px;
+        margin: 0px;
+      }
+    }
+
+    .svg-container__svg {
+      float: right;
+      width: 10px;
+      height: 17px;
+      margin-right: 5px;
+      background-repeat: no-repeat;
+      background-position: 0 4px;
+      background-size: 10px;
+    }
+  }
+
+  .tab {
+    &__content {
+      display: flex;
+      font-size: $gutter - 4;
+      font-family: $font-stack-futura;
+      font-weight: 400;
+      line-height: $gutter + 4;
+      letter-spacing: 0.25px;
+      color: $color-black;
+
+      a {
+        color: $color-black;
+      }
+
+      .product-inquiries li {
+        font-size: $gutter - 4;
+
+        @include for-mobile {
+          display: block;
+        }
+
+        +li {
+          @include for-mobile {
+            margin-left: 0;
+          }
+        }
+
+        &:before {
+          @include for-mobile {
+            content: "";
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &__content {
+
+      &__cutline-top,
+      &__cutline-bottom {
+        color: $color-black;
+      }
+
+      @include for-mobile {
+        margin-top: 3 * $gutter;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 5px 0px 20px;
+      }
+
+      &__designer {
+        padding: 0px 0px 20px;
+
+        @include for-mobile {
+          margin-top: 6 * $gutter;
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.vertical-tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 300px;
+
+  /* Style the buttons inside the tab */
+  button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+
+    &::hover {
+      background-color: #ddd;
+    }
+
+    /* Create an active/current "tab button" class */
+    &.active {
+      background-color: #ccc;
+    }
+  }
+}

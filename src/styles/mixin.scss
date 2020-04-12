@@ -1,0 +1,167 @@
+@import 'functions';
+@import 'variables';
+@import 'compass-mixins/lib/compass';
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+}
+
+@mixin mq($breakpoint) {
+   @media screen and (min-width: #{$breakpoint}){
+    @content;
+  }
+}
+
+@mixin mq-max($breakpoint) {
+  @media screen and (max-width: #{$breakpoint}){
+    @content;
+  }
+}
+
+@mixin mq-range($breakpoint1,$breakpoint2) {
+  @media screen and (min-width: #{$breakpoint1}) and (max-width: #{$breakpoint2}){
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (min-width: #{$media-tablet-min}){
+    display: none !important;
+  }
+}
+
+@mixin device-only {
+  @media (min-width: #{$media-desktop-min}) {
+    display: none !important;
+  }
+}
+
+@mixin desktop-tablet-only {
+  @media (max-width: #{$media-mobile-max}) {
+    display: none !important;
+  }
+}
+
+@mixin desktop-only {
+  @media (max-width: #{$media-tablet-max}) {
+    display: none !important;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: #{$media-desktop-min}) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (min-width: #{$media-tablet-min}) and (max-width: #{$media-tablet-max}){
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: #{$media-mobile-max}) {
+    @content;
+  }
+}
+
+@mixin for-desktop-and-tablet {
+  @media (min-width: #{$media-tablet-min}) {
+    @content;
+  }
+}
+
+@mixin for-mobile-and-tablet {
+  @media (max-width: #{$media-tablet-max}) {
+    @content;
+  }
+}
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin strikethrough($width, $height, $color: $color-black) {
+  $strikethrough-angle: rad-to-deg(atan2($height, $width));
+  $strikethrough-width: $height / sin($strikethrough-angle);
+
+  &:before {
+    transform: rotate(-#{floor($strikethrough-angle)});
+    transform-origin: 0;
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: floor($strikethrough-width);
+    height: 1px;
+    background: $color-white;
+    border-bottom: 1px solid $color;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin gutters($gutter-width: $gutter) {
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+}
+
+@mixin flex-grid($cols, $gutter: 0) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    margin-left: 0;
+    margin-bottom: 0;
+    $item-width: calc((100% / #{$cols}) - #{$gutter} + (#{$gutter} / #{$cols}));
+    margin-right: $gutter;
+    width: $item-width;
+    box-sizing: border-box;
+
+    &:nth-child(n+#{$cols + 1}) {
+      margin-top: $gutter;
+    }
+
+    &:nth-child(#{$cols}n) {
+      margin-right: 0;
+    }
+
+  }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color, $border-radius, $thumb-height) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: $border-radius;
+    height: $thumb-height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
