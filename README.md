@@ -1,8 +1,7 @@
 # SortingAlgorithm
 Data structure Algorithm - My understanding
 
-Execute in local
-Clone the project
+To execute in local, Please clone the project
 
 ## Development Installation
 
