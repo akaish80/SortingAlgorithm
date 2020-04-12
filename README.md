@@ -1,12 +1,12 @@
 # SortingAlgorithm
 Data structure Algorithm - My understading
 
-#Execute in local
+Execute in local
 Clone the project
 
-#build
+<b>build</b>
 if yarn
 yarn run build:dev
 
-#run
+<u>run</u>
 yarn run start
