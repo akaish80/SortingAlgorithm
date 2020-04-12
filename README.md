@@ -1,5 +1,5 @@
 # SortingAlgorithm
-Data structure Algorithm - My understading
+Data structure Algorithm - My understanding
 
 Execute in local
 Clone the project
