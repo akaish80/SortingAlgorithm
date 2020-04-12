@@ -8,5 +8,5 @@ Clone the project
 if yarn
 yarn run build:dev
 
-<u>run</u>
+<p><u>run</u></p>
 yarn run start
